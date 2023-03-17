@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script async src="https://arc.io/widget.min.js#BVteTMbP"></script>
+    <title>
+        Eth0s Donation Center
+    </title>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <script>
+        window.addEventListener('load', () => {
+            function hcallback(data) {
+                console.log(hcaptcha.getResponse(captcha));
+                hcaptcha.reset(captcha);
+            }
+            let captcha = hcaptcha.render('hcaptcha', {
+                sitekey: 'ceee5fce-da56-4dab-9d48-e04bd0439468',
+                theme: 'dark',
+                callback: hcallback
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>
+            Eth0s Donation Center
+        </h1>
+        <h2>
+            Support Eth0s projects (mainly App SMS).
+        </h2>
+        <h2>
+            Currently donations are going towards bringing back App SMS.
+        </h2>
+        <br>
+        <p>
+            Just by being here you are making us money with ARC!
+            Click the purple thing in the bottom left to learn more.
+        </p>
+        <br>
+        <p>
+            You can also solve captchas to earn us revenue!
+        </p>
+        <div id="hcaptcha">
+
+        </div>
+    </center>
+</body>
+
+</html>
