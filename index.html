@@ -22,7 +22,8 @@
             let captcha = hcaptcha.render('hcaptcha', {
                 sitekey: 'ceee5fce-da56-4dab-9d48-e04bd0439468',
                 theme: 'dark',
-                callback: hcallback
+                callback: hcallback,
+                'error-callback': console.log
             });
             let count = parseInt(window.localStorage.getItem("counter") || "0");
             const cc = document.querySelector("#captcha_counter");
@@ -71,7 +72,7 @@
         <div id="hcaptcha">
 
         </div>
-        <p>Captcha solves: <p id="captcha_counter"></p></p>
+        <p>Captcha solves: <p style="display: inline;" id="captcha_counter"></p></p>
         <hr>
         <p>
             <h3>Have some extra cash?</h3>
