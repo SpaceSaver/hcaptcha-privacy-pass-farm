@@ -12,6 +12,10 @@
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     <script>
         window.addEventListener('load', () => {
+            const cc = document.querySelector("#captcha_counter");
+            function update_count(number){
+                cc.textContent = new Intl.NumberFormat('en-US').format(number);
+            }
             function hcallback(data) {
                 console.log(hcaptcha.getResponse(captcha));
                 count++;
@@ -26,10 +30,7 @@
                 'error-callback': console.log
             });
             let count = parseInt(window.localStorage.getItem("counter") || "0");
-            const cc = document.querySelector("#captcha_counter");
-            function update_count(number){
-                cc.textContent = new Intl.NumberFormat('en-US').format(number);
-            }
+            update_count(count);
             
         });
     </script>
