@@ -21,7 +21,7 @@
                 count++;
                 window.localStorage.setItem("counter", count.toString());
                 update_count(count);
-                plus.className = "fade-in-text";
+                plus.className = "visible";
                 setTimeout(() => {
                     plus.className = "";
                 }, 2000);
@@ -54,24 +54,15 @@
             width: 128px;
         }
 
-        #plus.fade-in-text {
-            animation: fadeIn 1s;
+        #plus.visible {
             opacity: 1;
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
         #plus {
             color: green;
             display: inline;
             opacity: 0;
+            transition: opacity 1s linear;
         }
     </style>
     <link rel="icon" href="logo.jpg">
