@@ -19,6 +19,7 @@
             }
             function increment_count() {
                 count++;
+                window.localStorage.setItem("counter", count.toString());
                 update_count(count);
                 plus.className = "fade-in-text";
                 setTimeout(() => {
@@ -27,9 +28,7 @@
             }
             function hcallback(data) {
                 console.log(hcaptcha.getResponse(captcha));
-                count++;
-                window.localStorage.setItem("counter", count.toString());
-                update_count(count);
+                increment_count();
                 hcaptcha.reset(captcha);
             }
             let captcha = hcaptcha.render('hcaptcha', {
