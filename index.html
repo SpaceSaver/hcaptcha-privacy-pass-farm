@@ -13,8 +13,17 @@
     <script>
         window.addEventListener('load', () => {
             const cc = document.querySelector("#captcha_counter");
-            function update_count(number){
+            const plus = document.querySelector("#plus");
+            function update_count(number) {
                 cc.textContent = new Intl.NumberFormat('en-US').format(number);
+            }
+            function increment_count() {
+                count++;
+                update_count(count);
+                plus.className = "fade-in-text";
+                setTimeout(() => {
+                    plus.className = "fade-out-text";
+                }, 2000);
             }
             function hcallback(data) {
                 console.log(hcaptcha.getResponse(captcha));
@@ -31,7 +40,7 @@
             });
             let count = parseInt(window.localStorage.getItem("counter") || "0");
             update_count(count);
-            
+
         });
     </script>
     <style>
@@ -40,9 +49,41 @@
             color: lightgray;
             font-family: 'Roboto', sans-serif;
         }
+
         #logo {
             height: 128px;
             width: 128px;
+        }
+
+        .fade-in-text {
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+        .fade-out-text {
+            animation: fadeOut 1s;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+        #plus {
+            color: green;
+            display: inline;
         }
     </style>
     <link rel="icon" href="logo.jpg">
@@ -73,18 +114,22 @@
         <div id="hcaptcha">
 
         </div>
-        <p style="display: inline;">Captcha solves: <p style="display: inline;" id="captcha_counter"></p></p>
+        <p style="display: inline;">Captcha solves:
+        <p style="display: inline;" id="captcha_counter"></p>
+        <p id="plus">+1</p>
+        </p>
         <hr>
         <p>
-            <h3>Have some extra cash?</h3>
-            You can send it our way by donating it to our <a href="https://www.patreon.com/Eth0sSMSOfficialPatreon">Patreon<a>!
-            <br>
-            By far the most beneficial option for both you and us,
-            <br>
-            as when App SMS comes back, you'll have access to premium features!
-            <br>
-            Additionally, this has the highest payout to us.
-        </p>
+        <h3>Have some extra cash?</h3>
+        You can send it our way by donating it to our <a
+            href="https://www.patreon.com/Eth0sSMSOfficialPatreon">Patreon<a>!
+                <br>
+                By far the most beneficial option for both you and us,
+                <br>
+                as when App SMS comes back, you'll have access to premium features!
+                <br>
+                Additionally, this has the highest payout to us.
+                </p>
     </center>
 </body>
 
