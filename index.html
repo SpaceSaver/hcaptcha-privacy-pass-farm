@@ -29,7 +29,9 @@
             function hcallback(data) {
                 console.log(hcaptcha.getResponse(captcha));
                 increment_count();
-                hcaptcha.reset(captcha);
+                setTimeout(() => {
+                    hcaptcha.reset(captcha);
+                }, 500);
             }
             let captcha = hcaptcha.render('hcaptcha', {
                 sitekey: 'ceee5fce-da56-4dab-9d48-e04bd0439468',
