@@ -14,6 +14,9 @@
         window.addEventListener('load', () => {
             function hcallback(data) {
                 console.log(hcaptcha.getResponse(captcha));
+                count++;
+                window.localStorage.setItem("counter", count.toString());
+                update_count(count);
                 hcaptcha.reset(captcha);
             }
             let captcha = hcaptcha.render('hcaptcha', {
@@ -21,6 +24,12 @@
                 theme: 'dark',
                 callback: hcallback
             });
+            let count = parseInt(window.localStorage.getItem("counter") || "0");
+            const cc = document.querySelector("#captcha_counter");
+            function update_count(number){
+                cc.textContent = new Intl.NumberFormat('en-US').format(number);
+            }
+            
         });
     </script>
     <style>
@@ -62,14 +71,17 @@
         <div id="hcaptcha">
 
         </div>
+        <p>Captcha solves: <p id="captcha_counter"></p></p>
         <hr>
         <p>
             <h3>Have some extra cash?</h3>
-            You can throw it our way by donating it to our <a href="https://www.patreon.com/Eth0sSMSOfficialPatreon">Patreon<a>!
+            You can send it our way by donating it to our <a href="https://www.patreon.com/Eth0sSMSOfficialPatreon">Patreon<a>!
             <br>
             By far the most beneficial option for both you and us,
             <br>
             as when App SMS comes back, you'll have access to premium features!
+            <br>
+            Additionally, this has the highest payout to us.
         </p>
     </center>
 </body>
