@@ -1,2 +1,2 @@
-# donation
-A way to benefit Eth0s, mainly running App SMS.
+# hCaptcha Privacy Pass Farm
+An easy way to farm hCaptcha tokens on Privacy Pass.
